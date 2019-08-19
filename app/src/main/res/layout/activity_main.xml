@@ -26,7 +26,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button"
-            android:id="@+id/text"
+            android:id="@+id/tvResult"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
