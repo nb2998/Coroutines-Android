@@ -7,31 +7,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".JokesActivity"
-        android:gravity="center"
-        android:background="@android:color/holo_blue_bright">
+        android:gravity="center">
 
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="5dp"
+            android:layout_margin="20dp"
             app:cardElevation="5dp"
             app:cardCornerRadius="5dp"
             app:cardPreventCornerOverlap="true">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
                       android:orientation="vertical"
                       android:background="@android:color/holo_orange_light">
 
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       tools:text="Hi"
                       android:layout_margin="5dp"
+                      android:id="@+id/textJoke"
+                      android:textSize="24sp"
                       android:textColor="@android:color/black"/>
+
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       tools:src="@mipmap/ic_launcher"
+                       android:layout_margin="5dp"
+                       android:visibility="gone"
+                       android:id="@+id/imageJoke"/>
+
             <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:text="New joke"
                     android:id="@+id/btnNewJoke"
+                    android:layout_gravity="center"
                     android:background="@android:color/holo_blue_bright"/>
 
         </LinearLayout>
