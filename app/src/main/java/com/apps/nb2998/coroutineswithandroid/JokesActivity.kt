@@ -2,6 +2,7 @@ package com.apps.nb2998.coroutineswithandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_jokes.*
 import kotlinx.coroutines.CoroutineScope
@@ -22,16 +23,17 @@ class JokesActivity : AppCompatActivity() {
 
         btnNewJoke.setOnClickListener {
             CoroutineScope(IO).launch {
-                val jokeResponse = chuckNorrisApi.fetchJoke()
-                withContext(Dispatchers.Main) {
-                    with(jokeResponse ) {
-                        textJoke.text = value
+                chuckNorrisApi.fetchJoke().apply {
+                    withContext(Dispatchers.Main) {
+                            textJoke.text = value
 
-                        Picasso.get()
-                            .load(icon_url)
-                            .placeholder(R.mipmap.ic_launcher)
-                            .error(R.mipmap.ic_launcher)
-                            .into(imageJoke)
+                            Picasso.get()
+                                .load(icon_url)
+                                .placeholder(R.mipmap.ic_launcher)
+                                .error(R.mipmap.ic_launcher)
+                                .into(imageJoke)
+
+                            imageJoke.visibility = View.VISIBLE
                     }
                 }
             }
