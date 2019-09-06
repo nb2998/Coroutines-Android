@@ -3,6 +3,7 @@ package com.apps.nb2998.coroutineswithandroid
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.apps.nb2998.coroutineswithandroid.api.RetrofitFactory
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_jokes.*
 import kotlinx.coroutines.CoroutineScope
@@ -10,8 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
-import okhttp3.Request
 
 class JokesActivity : AppCompatActivity() {
 
