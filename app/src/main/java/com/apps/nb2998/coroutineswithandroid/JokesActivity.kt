@@ -2,6 +2,7 @@ package com.apps.nb2998.coroutineswithandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -45,16 +46,25 @@ class JokesActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel.joke.observe(this, Observer {
             with(it) {
-                textJoke.text = value
-                Picasso.get()
-                    .load(icon_url)
-                    .placeholder(R.mipmap.ic_launcher)
-                    .error(R.mipmap.ic_launcher)
-                    .into(imageJoke)
+                if(it==null) {
+                    Log.d("TAG in JokesActivity", "Null joke")
+                } else {
+                    Log.d("TAG in JokesActivity", "Joke: $it")
+                    textJoke.text = value
+                    Picasso.get()
+                        .load(icon_url)
+                        .placeholder(R.mipmap.ic_launcher)
+                        .error(R.mipmap.ic_launcher)
+                        .into(imageJoke)
 
-                imageJoke.visibility = View.VISIBLE
+                    imageJoke.visibility = View.VISIBLE
+                }
             }
         })
+
+        btnNewJoke.setOnClickListener {
+            viewModel.fetchNewJoke()
+        }
 
     }
 }
